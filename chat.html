@@ -60,6 +60,29 @@
 			"transcriptFields": ["Phone_Number__c"]
 		    }
 		];
+		
+		embedded_svc.settings.extraPrechatInfo = [{
+		  "entityFieldMaps": [{
+		    "doCreate": false,
+		    "doFind": true,
+		    "fieldName": "First_Name",
+		    "isExactMatch": true,
+		    "label": "First Name"
+		  },{
+		    "doCreate": false,
+		    "doFind": true,
+		    "fieldName": "Last_Name",
+		    "isExactMatch": true,
+		    "label": "Last Name"
+		  }, {
+		    "doCreate": false,
+		    "doFind": true,
+		    "fieldName": "Email",
+		    "isExactMatch": true,
+		    "label": "Email"
+		  }],
+		  "entityName": "Contact"
+		}];
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
