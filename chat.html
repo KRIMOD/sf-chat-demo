@@ -157,13 +157,13 @@
     embedded_svc.settings.entryFeature = "LiveAgent";
 
     // toutEvent();
-    embedded_svc.addEventHandler("onAvailability", function (data) {
-      console.log(data);
-      if (document.getElementById("SuppliedEmail") !== null) {
-        document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
-      }
-      // console.log(document.getElementById("SuppliedEmail"));
-    });
+    //embedded_svc.addEventHandler("onAvailability", function (data) {
+    //  console.log(data);
+    //  if (document.getElementById("SuppliedEmail") !== null) {
+    //    document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
+    //  }
+    //  // console.log(document.getElementById("SuppliedEmail"));
+    //});
 
     embedded_svc.init(
       "https://valobat--chatbot.sandbox.my.salesforce.com",
@@ -182,6 +182,9 @@
         isOfflineSupportEnabled: true,
       }
     );
+    const el = document.getElementById('SuppliedEmail');
+    el.value = 'bolt@gmail.com'
+    el.dispatchEvent(new Event('change'));
   };
 
   if (!window.embedded_svc) {
