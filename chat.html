@@ -156,17 +156,6 @@
     embedded_svc.settings.enabledFeatures = ["LiveAgent"];
     embedded_svc.settings.entryFeature = "LiveAgent";
 
-    // toutEvent();
-    embedded_svc.addEventHandler("onAvailability", function (data) {
-      console.log(data);
-      if (document.getElementById("SuppliedEmail") !== null) {
-        const el = document.getElementById("SuppliedEmail");
-        el.value = "bolt@gmail.com";
-        el.dispatchEvent(new Event("change"));
-      }
-      // console.log(document.getElementById("SuppliedEmail"));
-    });
-
     embedded_svc.init(
       "https://valobat--chatbot.sandbox.my.salesforce.com",
       "https://valobat--chatbot.sandbox.my.site.com/callcenter",
@@ -184,6 +173,17 @@
         isOfflineSupportEnabled: true,
       }
     );
+
+    // toutEvent();
+    embedded_svc.addEventHandler("onAvailability", function (data) {
+      console.log(data);
+      if (document.getElementById("SuppliedEmail") !== null) {
+        const el = document.getElementById("SuppliedEmail");
+        el.value = "bolt@gmail.com";
+        el.dispatchEvent(new Event("change"));
+      }
+      // console.log(document.getElementById("SuppliedEmail"));
+    });
   };
 
   if (!window.embedded_svc) {
