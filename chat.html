@@ -196,7 +196,25 @@
       initESW(null);
     };
     document.body.appendChild(s);
+    embedded_svc.addEventHandler("onAvailability", function (data) {
+      console.log(data);
+      if (document.getElementById("SuppliedEmail") !== null) {
+        const el = document.getElementById("SuppliedEmail");
+        el.value = "bolt@gmail.com";
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      // console.log(document.getElementById("SuppliedEmail"));
+    });
   } else {
     initESW("https://service.force.com");
+    embedded_svc.addEventHandler("onAvailability", function (data) {
+      console.log(data);
+      if (document.getElementById("SuppliedEmail") !== null) {
+        const el = document.getElementById("SuppliedEmail");
+        el.value = "bolt@gmail.com";
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      // console.log(document.getElementById("SuppliedEmail"));
+    });
   }
 </script>
