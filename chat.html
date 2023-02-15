@@ -174,15 +174,19 @@
       }
     );
 
-    // toutEvent();
+    // event listener that initialize email
     embedded_svc.addEventHandler("onAvailability", function (data) {
       console.log(data);
       if (document.getElementById("SuppliedEmail") !== null) {
         const el = document.getElementById("SuppliedEmail");
         el.value = "bolt@gmail.com";
         el.dispatchEvent(new Event("change", { bubbles: true }));
+        const hiddenEl = (document.getElementsByClassName(
+          "inputEmail"
+        )[0].style.visibility = "hidden");
+        // hiddenEl.style.visibility = "hidden";
+        // hiddenEl.dispatchEvent(new Event("", { bubbles: true }));
       }
-      // console.log(document.getElementById("SuppliedEmail"));
     });
   };
 
