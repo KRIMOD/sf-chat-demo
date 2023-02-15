@@ -13,8 +13,9 @@
   src="https://service.force.com/embeddedservice/5.0/esw.min.js"
 ></script>
 <script type="text/javascript">
-  var initESW = function (gslbBaseURL, lang) {
+  var initESW = function (gslbBaseURL) {
     const displayHelpButton = true;
+    const lang = "fr";
     const user = {
       firstName: "Usain",
       lastName: "Bolt",
@@ -190,10 +191,10 @@
       "https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
     );
     s.onload = function () {
-      initESW(null, "fr");
+      initESW(null);
     };
     document.body.appendChild(s);
   } else {
-    initESW("https://service.force.com", "fr");
+    initESW("https://service.force.com");
   }
 </script>
