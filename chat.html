@@ -180,7 +180,7 @@
       if (document.getElementById("SuppliedEmail") !== null) {
         const el = document.getElementById("SuppliedEmail");
         el.value = "bolt@gmail.com";
-        el.dispatchEvent(new Event("change"));
+        el.dispatchEvent(new Event("input", { bubbles: true }));
       }
       // console.log(document.getElementById("SuppliedEmail"));
     });
