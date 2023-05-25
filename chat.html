@@ -169,23 +169,21 @@
     // console.log(document.getElementById("SuppliedEmail"));
   });
 */
-    embedded_svc.init(
-      "https://valobat--chatbot.sandbox.my.salesforce.com",
-      "https://valobat--chatbot.sandbox.my.site.com/callcenter",
-      gslbBaseURL || null,
-      "00DAW000001Jllp",
-      "Chat_Adherent",
-      {
-        baseLiveAgentContentURL:
-          "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
-        deploymentId: "572AW000000xmBt",
-        buttonId: "573AW000000ECsX",
-        baseLiveAgentURL:
-          "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
-        eswLiveAgentDevName: "Chat_Adherent",
-        isOfflineSupportEnabled: true,
-      }
-    );
+    		embedded_svc.init(
+			'https://valobat--chatbot.sandbox.my.salesforce.com',
+			'https://valobat--chatbot.sandbox.my.site.com/callcenter',
+			gslbBaseURL,
+			'00DAW000001Jllp',
+			'Chat_Adherent',
+			{
+				baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content',
+				deploymentId: '572AW000000xmBt',
+				buttonId: '573AW000000ECsX',
+				baseLiveAgentURL: 'https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Chat_Adherent',
+				isOfflineSupportEnabled: true
+			}
+		);
     /*
     // event listener that initialize email and default subject
     embedded_svc.addEventHandler("onAvailability", function (data) {
