@@ -198,7 +198,7 @@
         )[0].style.visibility = "hidden");
         // subject
         const elSubject = document.getElementById("Subject");
-        elSubject.value = defaultIssue;
+        elSubject.value = "Besoin d'aide déclaration";
         elSubject.dispatchEvent(new Event("change", { bubbles: true }));
         const hiddenElSubject = (document.getElementsByClassName(
           "inputText"
