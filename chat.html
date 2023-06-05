@@ -162,15 +162,12 @@
     // event listener that initialize email and default subject
     embedded_svc.addEventHandler("onAvailability", function (data) {
       if (document.getElementById("SuppliedEmail") !== null) {
-        // Set and hide Chat Subject
-        //const elSubject = document.getElementById("Sujet_Chat__c");
-        //elSubject.value = "Besoin d'aide déclaration";
-        //elSubject.dispatchEvent(new Event("change", { bubbles: true }));
-        //document.getElementsByClassName(
-        //  "embeddedServiceSidebarFormField"
-        //)[0].style.visibility = "hidden";
+        // Hide Sujet_Chat__c : index 0
+        document.getElementsByClassName(
+          "embeddedServiceSidebarFormField"
+        )[0].style.visibility = "hidden";
 
-        // Set and hide Sujet_Chat_valobat_fr__c
+        // Set and hide Sujet_Chat_valobat_fr__c : index 1
         const elSubjectValobatFr = document.getElementById(
           "Sujet_Chat_valobat_fr__c"
         );
@@ -179,7 +176,7 @@
           new Event("change", { bubbles: true })
         );
 
-        // Set and Hide Web Origin
+        // Set and Hide Web Origin : index 4
         const elWebOrigin = document.getElementById("Web_Origin__c");
         elWebOrigin.value = "Valobat.fr";
         elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
