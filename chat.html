@@ -161,7 +161,7 @@
 
     // toutEvent();
     /*
-  embedded_svc.addEventHandler("onAvailability", function (data) {
+  embedded_svc.addEventHandler("onAvailability", function (data) {  
     console.log(data);
     if (document.getElementById("SuppliedEmail") !== null) {
       document.getElementById("SuppliedEmail").value = "krimo@gmail.com";
@@ -169,42 +169,52 @@
     // console.log(document.getElementById("SuppliedEmail"));
   });
 */
-    		embedded_svc.init(
-			'https://valobat--chatbot.sandbox.my.salesforce.com',
-			'https://valobat--chatbot.sandbox.my.site.com/callcenter',
-			gslbBaseURL,
-			'00DAW000001Jllp',
-			'Chat_Adherent',
-			{
-				baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content',
-				deploymentId: '572AW000000xmBt',
-				buttonId: '573AW000000ECsX',
-				baseLiveAgentURL: 'https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'Chat_Adherent',
-				isOfflineSupportEnabled: true
-			}
-		);
-    /*
+    embedded_svc.init(
+      "https://valobat--chatbot.sandbox.my.salesforce.com",
+      "https://valobat--chatbot.sandbox.my.site.com/callcenter",
+      gslbBaseURL,
+      "00DAW000001Jllp",
+      "Chat_Adherent",
+      {
+        baseLiveAgentContentURL:
+          "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
+        deploymentId: "572AW000000xmBt",
+        buttonId: "573AW000000ECsX",
+        baseLiveAgentURL:
+          "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
+        eswLiveAgentDevName: "Chat_Adherent",
+        isOfflineSupportEnabled: true,
+      }
+    );
+
     // event listener that initialize email and default subject
     embedded_svc.addEventHandler("onAvailability", function (data) {
       if (document.getElementById("SuppliedEmail") !== null) {
-        // email
+        // Set and Hide Email
         const elEmail = document.getElementById("SuppliedEmail");
         elEmail.value = "krimo@gmail.com";
         elEmail.dispatchEvent(new Event("change", { bubbles: true }));
         const hiddenElEmail = (document.getElementsByClassName(
           "inputEmail"
         )[0].style.visibility = "hidden");
-        // subject
+
+        // Set and hide Subject
         const elSubject = document.getElementById("Subject");
         elSubject.value = "Besoin d'aide déclaration";
         elSubject.dispatchEvent(new Event("change", { bubbles: true }));
         const hiddenElSubject = (document.getElementsByClassName(
           "inputText"
         )[1].style.visibility = "hidden");
+
+        // Set and Hide Web Origin
+        const elWebOrigin = document.getElementById("Web_Origin__c");
+        elWebOrigin.value = "Valobat.fr";
+        elSubject.dispatchEvent(new Event("change", { bubbles: true }));
+        //const hiddenElWebOrigin = (document.getElementsByClassName(
+        //  "inputText"
+        //)[1].style.visibility = "hidden");
       }
     });
-    */
   };
 
   //Subject
