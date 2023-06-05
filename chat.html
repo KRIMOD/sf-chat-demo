@@ -167,15 +167,6 @@
           "embeddedServiceSidebarFormField"
         )[0].style.visibility = "hidden";
 
-        // Set and hide Sujet_Chat_valobat_fr__c : index 1
-        const elSubjectValobatFr = document.getElementById(
-          "Sujet_Chat_valobat_fr__c"
-        );
-        elSubjectValobatFr.value = "Autre";
-        elSubjectValobatFr.dispatchEvent(
-          new Event("change", { bubbles: true })
-        );
-
         // Set and Hide Web Origin : index 4
         const elWebOrigin = document.getElementById("Web_Origin__c");
         elWebOrigin.value = "Valobat.fr";
