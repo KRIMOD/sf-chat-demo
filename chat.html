@@ -16,6 +16,11 @@
   var initESW = function (gslbBaseURL) {
     const displayHelpButton = true;
     const lang = "fr";
+    const user = {
+      firstName: "Krimo",
+      lastName: "Temam",
+      email: "krimo@gmail.com",
+    };
     const defaultIssue = "Besoin d'aide déclaration";
 
     embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
@@ -158,12 +163,12 @@
     embedded_svc.addEventHandler("onAvailability", function (data) {
       if (document.getElementById("SuppliedEmail") !== null) {
         // Set and hide Chat Subject
-        const elSubject = document.getElementById("Sujet_Chat__c");
-        elSubject.value = "Besoin d'aide déclaration";
-        elSubject.dispatchEvent(new Event("change", { bubbles: true }));
-        document.getElementsByClassName(
-          "embeddedServiceSidebarFormField"
-        )[0].style.visibility = "hidden";
+        //const elSubject = document.getElementById("Sujet_Chat__c");
+        //elSubject.value = "Besoin d'aide déclaration";
+        //elSubject.dispatchEvent(new Event("change", { bubbles: true }));
+        //document.getElementsByClassName(
+        //  "embeddedServiceSidebarFormField"
+        //)[0].style.visibility = "hidden";
 
         // Set and hide Sujet_Chat_valobat_fr__c
         const elSubjectValobatFr = document.getElementById(
