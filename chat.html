@@ -150,7 +150,7 @@
       },
       {
         label: "Origin",
-        value: "Chat - En ligne",
+        value: "Chat Valobat.fr - En ligne",
         transcriptFields: [],
         displayToAgent: true,
       },
@@ -194,25 +194,34 @@
         const elEmail = document.getElementById("SuppliedEmail");
         elEmail.value = "krimo@gmail.com";
         elEmail.dispatchEvent(new Event("change", { bubbles: true }));
-        const hiddenElEmail = (document.getElementsByClassName(
-          "inputEmail"
-        )[0].style.visibility = "hidden");
+        //const hiddenElEmail = (document.getElementsByClassName(
+        //  "inputEmail"
+        //)[0].style.visibility = "hidden");
 
-        // Set and hide Subject
+        // Set and hide Chat Subject
         const elSubject = document.getElementById("Sujet_Chat__c");
         elSubject.value = "Besoin d'aide déclaration";
         elSubject.dispatchEvent(new Event("change", { bubbles: true }));
-        //const hiddenElSubject = (document.getElementsByClassName(
-        //  "inputText"
-        //)[1].style.visibility = "hidden");
+        document.getElementsByClassName(
+          "embeddedServiceSidebarFormField"
+        )[0].style.visibility = "hidden";
+
+        // Set and hide Sujet_Chat_valobat_fr__c
+        const elSubjectValobatFr = document.getElementById(
+          "Sujet_Chat_valobat_fr__c"
+        );
+        elSubjectValobatFr.value = "Autre";
+        elSubjectValobatFr.dispatchEvent(
+          new Event("change", { bubbles: true })
+        );
 
         // Set and Hide Web Origin
         const elWebOrigin = document.getElementById("Web_Origin__c");
         elWebOrigin.value = "Valobat.fr";
         elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
-        //const hiddenElWebOrigin = (document.getElementsByClassName(
-        //  "inputText"
-        //)[1].style.visibility = "hidden");
+        document.getElementsByClassName(
+          "embeddedServiceSidebarFormField"
+        )[3].style.visibility = "hidden";
       }
     });
   };
