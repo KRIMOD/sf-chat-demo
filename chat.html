@@ -16,11 +16,6 @@
   var initESW = function (gslbBaseURL) {
     const displayHelpButton = true;
     const lang = "fr";
-    const user = {
-      firstName: "Krimo",
-      lastName: "Temam",
-      email: "krimo@gmail.com",
-    };
     const defaultIssue = "Besoin d'aide déclaration";
 
     embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
@@ -185,7 +180,7 @@
         elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
         document.getElementsByClassName(
           "embeddedServiceSidebarFormField"
-        )[3].style.visibility = "hidden";
+        )[4].style.visibility = "hidden";
       }
     });
   };
