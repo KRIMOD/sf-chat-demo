@@ -92,6 +92,13 @@
             doFind: false,
             label: "Origin",
           },
+          {
+            isExactMatch: false,
+            fieldName: "Web_Origin__c",
+            doCreate: true,
+            doFind: false,
+            label: "Web Origin",
+          },
         ],
       },
       {
@@ -114,7 +121,7 @@
 
     embedded_svc.settings.extraPrechatFormDetails = [
       {
-        label: "Web_Origin__c",
+        label: "Web Origin",
         value: "HtmlPreview",
         transcriptFields: [],
         displayToAgent: true,
