@@ -28,13 +28,6 @@
     embedded_svc.settings.offlineSupportMinimizedText =
       lang === "fr" ? "Contactez-nous OFF 2" : "Contact-Us OFF 2"; //(Defaults to Agent Offline)
 
-    embedded_svc.settings.prepopulatedPrechatFields = {
-      Subject:
-        lang === "fr"
-          ? "Besoin d'aide avec ma déclaration"
-          : "Need help with my declaration",
-    };
-
     embedded_svc.settings.extraPrechatInfo = [
       {
         entityName: "Contact",
@@ -123,12 +116,6 @@
       {
         label: "Web Origin",
         value: "Valobat.fr",
-        transcriptFields: [],
-        displayToAgent: true,
-      },
-      {
-        label: "Issue",
-        value: defaultIssue,
         transcriptFields: [],
         displayToAgent: true,
       },
