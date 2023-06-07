@@ -1,4 +1,19 @@
-/**
+<style type="text/css">
+  .embeddedServiceHelpButton .helpButton .uiButton {
+    background-color: #005290;
+    font-family: "Arial", sans-serif;
+  }
+  .embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: 1px solid #005290;
+  }
+</style>
+
+<script
+  type="text/javascript"
+  src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+></script>
+<script type="text/javascript">
+  /**
  * @param {'fr' | 'en'} lang
  * @param {string} origin
  * @param {'Valobat.fr' | 'MVA' | 'MVO'} webOrigin
@@ -173,3 +188,21 @@ function initAndHideExternalKeys() {
     }
   });
 }
+
+
+  //Subject
+
+  if (!window.embedded_svc) {
+    var s = document.createElement("script");
+    s.setAttribute(
+      "src",
+      "https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+    );
+    s.onload = function () {
+      initChat('fr', 'Chat en ligne', 'Valobat.fr');
+    };
+    document.body.appendChild(s);
+  } else {
+    initChat('fr', 'Chat en ligne', 'Valobat.fr');
+  }
+</script>
