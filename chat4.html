@@ -21,7 +21,7 @@
  * @param {boolean} displayHelpButton
  * @example initChat('fr',{firstName: 'John', lastName: 'Doe', email: 'john@doe.com'} , 'Chat en ligne', 'MVA');
  */
-export function initChat(
+function initChat(
   lang,
   user,
   origin,
@@ -178,7 +178,7 @@ export function initChat(
   initAndHideExternalKeys(user.email, webOrigin);
 }
 
-export const popChatBox = () => {
+const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
 };
 
