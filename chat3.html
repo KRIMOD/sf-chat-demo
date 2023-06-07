@@ -18,6 +18,7 @@
  * @param {string} origin
  * @param {'Valobat.fr' | 'MVA' | 'MVO'} webOrigin
  * @param {boolean} displayHelpButton
+ * @example initChat('fr', 'Chat en ligne', 'Valobat.fr');
  */
 function initChat(
   lang,
@@ -118,12 +119,6 @@ function initChat(
 
   embedded_svc.settings.extraPrechatFormDetails = [
     {
-      label: "Web Origin",
-      value: webOrigin,
-      transcriptFields: [],
-      displayToAgent: true,
-    },
-    {
       label: "Langage",
       value: lang,
       transcriptFields: ["Langage__c"],
@@ -132,6 +127,12 @@ function initChat(
     {
       label: "Origin",
       value: origin,
+      transcriptFields: [],
+      displayToAgent: true,
+    },
+    {
+      label: "Web Origin",
+      value: webOrigin,
       transcriptFields: [],
       displayToAgent: true,
     },
@@ -178,16 +179,10 @@ function initAndHideExternalKeys() {
       document.getElementsByClassName(
         "embeddedServiceSidebarFormField"
       )[0].style.display = "none";
-      // Set and Hide Web Origin : index 4
-      const elWebOrigin = document.getElementById("Web_Origin__c");
-      elWebOrigin.value = "Valobat.fr";
-      elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
-      document.getElementsByClassName(
-        "embeddedServiceSidebarFormField"
-      )[4].style.display = "none";
     }
   });
 }
+
 
 
   //Subject
