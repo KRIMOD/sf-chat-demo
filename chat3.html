@@ -13,7 +13,7 @@
   src="https://service.force.com/embeddedservice/5.0/esw.min.js"
 ></script>
 <script type="text/javascript">
-  /**
+ /**
  * @param {'fr' | 'en'} lang
  * @param {string} origin
  * @param {'Valobat.fr' | 'MVA' | 'MVO'} webOrigin
@@ -159,14 +159,14 @@ function initChat(
     }
   );
 
-  initAndHideExternalKeys();
+  initAndHideExternalKeys(webOrigin);
 }
 
 const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
 };
 
-function initAndHideExternalKeys() {
+function initAndHideExternalKeys(webOrigin) {
   embedded_svc.addEventHandler("onAvailability", function (data) {
     // CHANGER EVENT
     if (document.getElementById("SuppliedEmail") !== null) {
@@ -179,9 +179,17 @@ function initAndHideExternalKeys() {
       document.getElementsByClassName(
         "embeddedServiceSidebarFormField"
       )[0].style.display = "none";
+      // Set and Hide Web Origin : index 4
+      const elWebOrigin = document.getElementById("Web_Origin__c");
+      elWebOrigin.value = webOrigin;
+      elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
+      document.getElementsByClassName(
+        "embeddedServiceSidebarFormField"
+      )[4].style.display = "none";
     }
   });
 }
+
 
 
 
