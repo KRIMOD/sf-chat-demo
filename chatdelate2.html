@@ -61,36 +61,6 @@
             doFind: false,
             label: "Issue",
           },
-          {
-            isExactMatch: false,
-            fieldName: "Status",
-            doCreate: true,
-            doFind: false,
-            label: "Status",
-          },
-          {
-            isExactMatch: false,
-            fieldName: "Origin",
-            doCreate: true,
-            doFind: false,
-            label: "Origin",
-          },
-        ],
-      },
-      {
-        entityName: "Account",
-        showOnCreate: true,
-        linkToEntityName: "Case", // check
-        linkToEntityField: "AccountId", // check
-        saveToTranscript: "Account", // check
-        entityFieldMaps: [
-          {
-            isExactMatch: true,
-            fieldName: "Adresse_email",
-            doCreate: false,
-            doFind: true,
-            label: "Email address",
-          },
         ],
       },
     ];
