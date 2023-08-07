@@ -1,0 +1,128 @@
+<style type="text/css">
+  .embeddedServiceHelpButton .helpButton .uiButton {
+    background-color: #005290;
+    font-family: "Arial", sans-serif;
+  }
+  .embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: 1px solid #005290;
+  }
+</style>
+
+<script
+  type="text/javascript"
+  src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+></script>
+<script type="text/javascript">
+  /**
+   * @example initChat();
+   */
+  function initChat() {
+    const gslbBaseURL = window.embedded_svc
+      ? "https://service.force.com"
+      : null;
+
+    embedded_svc.settings.extraPrechatInfo = [
+      {
+        entityName: "Contact",
+        showOnCreate: true,
+        linkToEntityName: "Case",
+        linkToEntityField: "ContactId",
+        saveToTranscript: "Contact",
+        entityFieldMaps: [
+          {
+            isExactMatch: false,
+            fieldName: "FirstName",
+            doCreate: false,
+            doFind: true,
+            label: "FirstName",
+          },
+          {
+            isExactMatch: false,
+            fieldName: "LastName",
+            doCreate: false,
+            doFind: true,
+            label: "LastName",
+          },
+          {
+            isExactMatch: true,
+            fieldName: "Email",
+            doCreate: false,
+            doFind: true,
+            label: "Email",
+          },
+        ],
+      },
+      {
+        entityName: "Case",
+        showOnCreate: true,
+        saveToTranscript: "Case",
+        entityFieldMaps: [
+          {
+            isExactMatch: false,
+            fieldName: "Subject",
+            doCreate: true,
+            doFind: false,
+            label: "Issue",
+          },
+          {
+            isExactMatch: false,
+            fieldName: "Status",
+            doCreate: true,
+            doFind: false,
+            label: "Status",
+          },
+          {
+            isExactMatch: false,
+            fieldName: "Origin",
+            doCreate: true,
+            doFind: false,
+            label: "Origin",
+          },
+        ],
+      },
+      {
+        entityName: "Account",
+        showOnCreate: true,
+        linkToEntityName: "Case", // check
+        linkToEntityField: "AccountId", // check
+        saveToTranscript: "Account", // check
+        entityFieldMaps: [
+          {
+            isExactMatch: true,
+            fieldName: "Adresse_email",
+            doCreate: false,
+            doFind: true,
+            label: "Email address",
+          },
+        ],
+      },
+    ];
+
+    embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+    embedded_svc.settings.entryFeature = "LiveAgent";
+
+    embedded_svc.menu.init(
+      "https://deltadore--devcc.sandbox.my.salesforce.com",
+      "https://d.la2-c1cs-fra.salesforceliveagent.com/chat",
+      gslbBaseURL,
+      "00D5E000000Dl85",
+      "Channel_France_Grand_Public"
+    );
+  }
+
+  //Subject
+
+  if (!window.embedded_svc) {
+    var s = document.createElement("script");
+    s.setAttribute(
+      "src",
+      "https://deltadore--devcc.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js"
+    );
+    s.onload = function () {
+      initChat();
+    };
+    document.body.appendChild(s);
+  } else {
+    initChat();
+  }
+</script>
