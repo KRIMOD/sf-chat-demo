@@ -101,13 +101,21 @@
     embedded_svc.settings.enabledFeatures = ["LiveAgent"];
     embedded_svc.settings.entryFeature = "LiveAgent";
 
-    embedded_svc.menu.init(
-      "https://deltadore--devcc.sandbox.my.salesforce.com",
-      "https://d.la2-c1cs-fra.salesforceliveagent.com/chat",
-      gslbBaseURL,
-      "00D5E000000Dl85",
-      "Channel_France_Grand_Public"
-    );
+embedded_svc.init(
+			'https://deltadore--devcc.sandbox.my.salesforce.com',
+			'https://deltadore--devcc.sandbox.my.salesforce-sites.com/liveAgentSetupFlow',
+			gslbBaseURL,
+			'00D5E000000Dl85',
+			'Channel_France_Grand_Public',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-fra.salesforceliveagent.com/content',
+				deploymentId: '5725E000000085O',
+				buttonId: '5735E00000003Zi',
+				baseLiveAgentURL: 'https://d.la2-c1cs-fra.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Channel_France_Grand_Public',
+				isOfflineSupportEnabled: false
+			}
+		);
   }
 
   //Subject
