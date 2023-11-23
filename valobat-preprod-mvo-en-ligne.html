@@ -185,7 +185,12 @@ const popChatBox = () => {
 const initAndHideExternalKeys = (email, webOrigin) => {
   embedded_svc.addEventHandler("onAvailability", function (data) {
     if (document.getElementById("SuppliedEmail") !== null) {
-      // Hide Sujet_Chat_Valobat_fr__c : index 0
+      // Hide Sujet_Chat__c : index 0
+      document.getElementsByClassName(
+        "embeddedServiceSidebarFormField"
+      )[0].style.display = "none";
+
+      // Hide Sujet_Chat_Valobat_fr__c : index 1
       document.getElementsByClassName(
         "embeddedServiceSidebarFormField"
       )[1].style.display = "none";
@@ -197,19 +202,19 @@ const initAndHideExternalKeys = (email, webOrigin) => {
       document.getElementsByClassName("inputEmail")[0].style.display = "none";
 
       // Modifier les lables
-      document.getElementById("Sujet_Chat__c").value = "";
-      document.getElementById("Sujet_Chat__c-label").innerHTML =
+      document.getElementById("Sujet_Chat_MVO__c").value = "";
+      document.getElementById("Sujet_Chat_MVO__c-label").innerHTML =
         "Quelle est votre demande ?";
       document.getElementById("SuppliedPhone-label").innerHTML =
         "Numéro de téléphone";
 
-      // Set and Hide Web Origin : index 4
+      // Set and Hide Web Origin : index 5
       const elWebOrigin = document.getElementById("Web_Origin__c");
       elWebOrigin.value = webOrigin;
       elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
       document.getElementsByClassName(
         "embeddedServiceSidebarFormField"
-      )[4].style.display = "none";
+      )[5].style.display = "none";
     }
   });
 };
