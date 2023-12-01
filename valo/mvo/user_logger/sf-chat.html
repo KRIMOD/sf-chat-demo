@@ -156,9 +156,9 @@
     embedded_svc.init(
       "https://valobat--chatbot.sandbox.my.salesforce.com",
       "https://valobat--chatbot.sandbox.my.site.com/callcenter",
-      gslbBaseURL || null,
+      gslbBaseURL,
       "00DAW000001Jllp",
-      "Chat_Adherent",
+      "Chat_MVO",
       {
         baseLiveAgentContentURL:
           "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
@@ -166,8 +166,9 @@
         buttonId: "573AW000000ECsX",
         baseLiveAgentURL:
           "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
-        eswLiveAgentDevName: "Chat_Adherent",
-        isOfflineSupportEnabled: true,
+        eswLiveAgentDevName:
+          "EmbeddedServiceLiveAgent_Parent04IAW0000002COT2A2_18c24af5e67",
+        isOfflineSupportEnabled: false,
       }
     );
   }
