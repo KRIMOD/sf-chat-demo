@@ -1,0 +1,212 @@
+<style type="text/css">
+  .embeddedServiceHelpButton .helpButton .uiButton {
+    background-color: #005290;
+    font-family: "Arial", sans-serif;
+  }
+  .embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: 1px solid #005290;
+  }
+</style>
+
+<script
+  type="text/javascript"
+  src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+></script>
+<script type="text/javascript">
+  /**
+   * @param {'fr' | 'en'} lang
+   * @param {string} origin
+   * @param {'Valobat.fr' | 'MVA' | 'MVO'} webOrigin
+   * @param {boolean} displayHelpButton
+   * @example initChat('fr', 'Chat en ligne', 'Valobat.fr');
+   */
+  function initChat(
+    lang,
+    origin = "Chat en ligne",
+    webOrigin,
+    displayHelpButton = true
+  ) {
+    const gslbBaseURL = window.embedded_svc
+      ? "https://service.force.com"
+      : null;
+
+    embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
+    embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
+
+    embedded_svc.settings.defaultMinimizedText =
+      lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
+    embedded_svc.settings.offlineSupportMinimizedText =
+      lang === "fr" ? "Contactez-nous" : "Contact-Us"; //(Defaults to Agent Offline)
+
+    embedded_svc.settings.prepopulatedPrechatFields = {
+      Subject: lang === "fr" ? "Besoin d'aide ?" : "Need help ?",
+    };
+
+    embedded_svc.settings.extraPrechatInfo = [
+      {
+        entityName: "Contact",
+        showOnCreate: true,
+        linkToEntityName: "Case",
+        linkToEntityField: "ContactId",
+        saveToTranscript: "Contact",
+        entityFieldMaps: [
+          {
+            isExactMatch: true,
+            fieldName: "FirstName",
+            doCreate: false,
+            doFind: true,
+            label: "FirstName",
+          },
+          {
+            isExactMatch: true,
+            fieldName: "LastName",
+            doCreate: false,
+            doFind: true,
+            label: "LastName",
+          },
+          {
+            isExactMatch: true,
+            fieldName: "Email",
+            doCreate: false,
+            doFind: true,
+            label: "Email",
+          },
+        ],
+      },
+      {
+        entityName: "Case",
+        showOnCreate: true,
+        saveToTranscript: "Case",
+        entityFieldMaps: [
+          {
+            isExactMatch: false,
+            fieldName: "Status",
+            doCreate: true,
+            doFind: false,
+            label: "Status",
+          },
+          {
+            isExactMatch: false,
+            fieldName: "Origin",
+            doCreate: true,
+            doFind: false,
+            label: "Origin",
+          },
+          {
+            isExactMatch: false,
+            fieldName: "Web_Origin__c",
+            doCreate: true,
+            doFind: false,
+            label: "Web Origin",
+          },
+        ],
+      },
+      {
+        entityName: "Account",
+        showOnCreate: true,
+        linkToEntityName: "Case", // check
+        linkToEntityField: "AccountId", // check
+        saveToTranscript: "Account", // check
+        entityFieldMaps: [
+          {
+            isExactMatch: true,
+            fieldName: "Name",
+            doCreate: false,
+            doFind: true,
+            label: "LastName",
+          },
+        ],
+      },
+    ];
+
+    embedded_svc.settings.extraPrechatFormDetails = [
+      {
+        label: "Langage",
+        value: lang,
+        transcriptFields: ["Langage__c"],
+        displayToAgent: true,
+      },
+      {
+        label: "Origin",
+        value: origin,
+        transcriptFields: [],
+        displayToAgent: true,
+      },
+      {
+        label: "Web Origin",
+        value: webOrigin,
+        transcriptFields: [],
+        displayToAgent: true,
+      },
+    ];
+
+    embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+    embedded_svc.settings.entryFeature = "LiveAgent";
+
+    embedded_svc.init(
+      "https://valobat--chatbot.sandbox.my.salesforce.com",
+      "https://valobat--chatbot.sandbox.my.site.com/callcenter",
+      gslbBaseURL,
+      "00DAW000001Jllp",
+      "Chat_MVO",
+      {
+        baseLiveAgentContentURL:
+          "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
+        deploymentId: "572AW000000xmBt",
+        buttonId: "573AW000000ECsX",
+        baseLiveAgentURL:
+          "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
+        eswLiveAgentDevName:
+          "EmbeddedServiceLiveAgent_Parent04IAW0000002COT2A2_18c24af5e67",
+        isOfflineSupportEnabled: true,
+      }
+    );
+  }
+
+  const initAndHideExternalKeys = (webOrigin) => {
+    embedded_svc.addEventHandler("onAvailability", function (data) {
+      if (document.getElementById("SuppliedEmail") !== null) {
+        // Modifier les lables
+        document.getElementById("Sujet_Chat_MVO__c").value = "";
+        document.getElementById("Sujet_Chat_MVO__c-label").innerHTML =
+          "Quelle est votre demande ?";
+        document.getElementById("SuppliedPhone-label").innerHTML =
+          "Numéro de téléphone";
+        document.getElementById("SuppliedEmail-label").innerHTML =
+          "Votre email";
+
+        // Set and Hide Web Origin : index 3
+        const elWebOrigin = document.getElementById("Web_Origin__c");
+        elWebOrigin.value = webOrigin;
+        elWebOrigin.dispatchEvent(new Event("change", { bubbles: true }));
+        document.getElementsByClassName(
+          "embeddedServiceSidebarFormField"
+        )[3].style.display = "none";
+      }
+    });
+  };
+
+  if (!window.embedded_svc) {
+    var s = document.createElement("script");
+    s.setAttribute(
+      "src",
+      "https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+    );
+    s.onload = function () {
+      initChat(
+        "fr",
+        { firstName: "Krimo", lastName: "Temam", email: "krimo@gmail.com" },
+        "Chat en ligne",
+        "MVO"
+      );
+    };
+    document.body.appendChild(s);
+  } else {
+    initChat(
+      "fr",
+      { firstName: "Krimo", lastName: "Temam", email: "krimo@gmail.com" },
+      "Chat en ligne",
+      "MVO"
+    );
+  }
+</script>
