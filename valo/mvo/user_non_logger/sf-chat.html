@@ -15,13 +15,17 @@
 <script type="text/javascript">
   /**
    * @param {'fr' | 'en'} lang
-   * @param {{firstName: string, lastName: string, email: string}} user.
    * @param {string} origin
    * @param {'Valobat.fr' | 'MVA' | 'MVO'} webOrigin
    * @param {boolean} displayHelpButton
-   * @example initChat('fr',{firstName: 'John', lastName: 'Doe', email: 'john@doe.com'} , 'Chat en ligne', 'MVA');
+   * @example initChat('fr', 'Chat en ligne', 'Valobat.fr');
    */
-  function initChat(lang, user, origin, webOrigin, displayHelpButton = true) {
+  function initChat(
+    lang,
+    origin = "Chat en ligne",
+    webOrigin,
+    displayHelpButton = true
+  ) {
     const gslbBaseURL = window.embedded_svc
       ? "https://service.force.com"
       : null;
@@ -33,6 +37,10 @@
       lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
     embedded_svc.settings.offlineSupportMinimizedText =
       lang === "fr" ? "Contactez-nous" : "Contact-Us"; //(Defaults to Agent Offline)
+
+    embedded_svc.settings.prepopulatedPrechatFields = {
+      Subject: lang === "fr" ? "Besoin d'aide ?" : "Need help ?",
+    };
 
     embedded_svc.settings.extraPrechatInfo = [
       {
@@ -113,24 +121,6 @@
 
     embedded_svc.settings.extraPrechatFormDetails = [
       {
-        label: "FirstName",
-        value: user.firstName,
-        transcriptFields: [],
-        displayToAgent: true,
-      },
-      {
-        label: "LastName",
-        value: user.lastName,
-        transcriptFields: [],
-        displayToAgent: false,
-      },
-      {
-        label: "Email",
-        value: user.email,
-        transcriptFields: [],
-        displayToAgent: true,
-      },
-      {
         label: "Langage",
         value: lang,
         transcriptFields: ["Langage__c"],
@@ -171,11 +161,9 @@
         isOfflineSupportEnabled: false,
       }
     );
-
-    initAndHideExternalKeys(user.email, webOrigin);
   }
 
-  const initAndHideExternalKeys = (email, webOrigin) => {
+  const initAndHideExternalKeys = (webOrigin) => {
     embedded_svc.addEventHandler("onAvailability", function (data) {
       if (document.getElementById("SuppliedEmail") !== null) {
         // Modifier les lables
@@ -184,12 +172,8 @@
           "Quelle est votre demande ?";
         document.getElementById("SuppliedPhone-label").innerHTML =
           "Numéro de téléphone";
-
-        // Set and hide SuppliedEmail
-        const elEmail = document.getElementById("SuppliedEmail");
-        elEmail.value = email;
-        elEmail.dispatchEvent(new Event("change", { bubbles: true }));
-        document.getElementsByClassName("inputEmail")[0].style.display = "none";
+        document.getElementById("SuppliedEmail-label").innerHTML =
+          "Votre email";
 
         // Set and Hide Web Origin : index 3
         const elWebOrigin = document.getElementById("Web_Origin__c");
