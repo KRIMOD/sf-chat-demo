@@ -26,18 +26,5 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-
-	  if (!window.embeddedservice_bootstrap) {
-    var s = document.createElement("script");
-    s.setAttribute(
-      "src",
-      "https://ledgercustomersuccess--devcrt.sandbox.my.site.com/ESWTesting1717604309901/assets/js/bootstrap.min.js"
-    );
-    s.onload = function () {
-      initEmbeddedMessaging();
-    };
-    document.body.appendChild(s);
-  } else {
-    initEmbeddedMessaging();
-  }
+initEmbeddedMessaging();
 </script>
