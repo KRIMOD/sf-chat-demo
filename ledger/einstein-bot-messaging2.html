@@ -1,0 +1,80 @@
+<html>
+	<!--
+        Copy Paste the initEmbeddedMessaging() from Embedded Service Code Snippet 
+    -->
+    <script type="text/javascript" src="https://ledgercustomersuccess--devcrt.sandbox.my.site.com/ESWTesting1717604309901/assets/js/bootstrap.min.js"></script>
+
+    <button id="launchChatButton" onclick="launchChat()">
+        Chat with our Agents!!!
+    </button>
+
+    <script>
+
+      	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+ 
+			embeddedservice_bootstrap.init(
+				'00D7a0000005EPa',
+				'Testing',
+				'https://ledgercustomersuccess--devcrt.sandbox.my.site.com/ESWTesting1717604309901',
+				{
+					scrt2URL: 'https://ledgercustomersuccess--devcrt.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+        window.onload=function() {    
+          
+        
+            console.log( 'Inside onload' );
+            let startMessaging = sessionStorage.getItem(
+                'messagingStartCheck'
+            );
+
+            if ( 
+                startMessaging &&
+                startMessaging === 'YES'
+            ) {
+
+                console.log( 'Messaging was in progress' );        
+				/*
+					For session continuity when the page loads, 
+					Messaging is initiated and launched.
+				*/
+                initEmbeddedMessaging();
+                embeddedservice_bootstrap.utilAPI.launchChat();
+                
+            }
+            
+        };
+        function launchChat() {
+        
+			/*
+				For session continuity , sessionStorage is used.
+			*/
+            sessionStorage.setItem(
+                'messagingStartCheck',
+                'YES'
+            );
+            initEmbeddedMessaging();
+            console.log("Loading Messaging now");
+            setTimeout(() => {
+                embeddedservice_bootstrap.utilAPI
+                    .launchChat()
+                    .then(() => {
+                        console.log("Inside Launch Chat");
+                    })
+                    .catch(() => {
+                        console.log("Inside Launch Chat catch Block");
+                    })
+                    .finally(() => {
+                        console.log("Inside Launch Chat finally Block");
+                    });
+            }, 2000);
+            
+        }
+    </script>
+</html>
