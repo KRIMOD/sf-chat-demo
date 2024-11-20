@@ -1,0 +1,172 @@
+<html>
+  
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  REMARQUE : Ajoutez l'élément suivant <META> à votre page <HEAD>. Si     -->
+<!--  nécessaire, modifiez le paramètre charset pour spécifier le jeu de      -->
+<!--  caractères de votre page HTML.                                          -->
+<!--  ----------------------------------------------------------------------  -->
+<head>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+</head>
+<!--  ----------------------------------------------------------------------  -->
+<!--  REMARQUE : Ajoutez l'élément suivant <FORM> à votre page.               -->
+<!--  ----------------------------------------------------------------------  -->
+<body>
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKB000000H76s" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"webtolead","fallback":"true","orgId":"00DKB000000H76s","ts":""}'>
+<input type=hidden name="oid" value="00DKB000000H76s">
+<input type=hidden name="retURL" value="https://www.florimont.ch/">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  REMARQUE : Ces champs sont des éléments de débogage facultatifs.        -->
+<!--  N'insérez aucun commentaire sur ces lignes si vous voulez tester en     -->
+<!--  mode débogage.                                                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="thomas.heulin@mavericx.ch">                                      -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="salutation">Civilité</label><select  id="salutation" name="salutation"><option value="">- Aucun -</option><option value="M.">M.</option>
+<option value="Mme">Mme</option>
+</select><br>
+
+<label for="last_name">Nom</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+
+<label for="first_name">Prénom</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+<label for="email">Adresse e-mail</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="phone">Téléphone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+<label for="city">Ville</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+<label for="country">Pays</label><input  id="country" maxlength="40" name="country" size="20" type="text" /><br>
+
+Message  :<input  id="00NKB00000T248M" maxlength="255" name="00NKB00000T248M" size="20" type="text" /><br>
+
+Type de demande :<select  id="00NKB00000U9TWm" name="00NKB00000U9TWm" title="Type de demande"><option value="">- Aucun -</option><option value="Demande d&#39;information">Demande d&#39;information</option>
+<option value="Demande de visite">Demande de visite</option>
+<option value="Demande de rendez-vous">Demande de rendez-vous</option>
+</select><br>
+
+Intérêt section :<select  id="00NKB00000U9TWr" name="00NKB00000U9TWr" title="Intérêt section"><option value="">- Aucun -</option><option value="Maternelle">Maternelle</option>
+<option value="Primaire">Primaire</option>
+<option value="Secondaire 1">Secondaire 1 / Cycle / Middle school</option>
+<option value="Secondaire 2">Secondaire 2 / Collège / High school</option>
+</select><br>
+
+Intérêt filière :<select  id="00NKB00000U9TXk" name="00NKB00000U9TXk" title="Intérêt filière"><option value="">- Aucun -</option><option value="Bilingue">Bilingue</option>
+<option value="Francophone">Francophone</option>
+<option value="Art et Sports">Art et Sports</option>
+<option value="Baccalauréat Français">Baccalauréat Français</option>
+<option value="Maturité Suisse">Maturité Suisse</option>
+<option value="International Baccalauréat (IB)">International Baccalauréat (IB)</option>
+</select><br>
+
+Autre point d&#39;intérêt :<select  id="00NKB00000Usjiy" name="00NKB00000Usjiy" title="Autre point d&#39;intérêt"><option value="">- Aucun -</option><option value="Saison culturelle">Saison culturelle</option>
+<option value="Orientation">Orientation</option>
+<option value="Cantine">Cantine</option>
+<option value="Infrastructures">Infrastructures</option>
+</select><br>
+
+Comment nous avez-vous connus ? :<select  id="00NKB00000T2ZA8" name="00NKB00000T2ZA8" title="Comment nous avez-vous connus ?"><option value="">- Aucun -</option><option value="Recommandation">Recommandation</option>
+<option value="Moteurs de recherche">Moteurs de recherche</option>
+<option value="Réseaux sociaux (Linkedin, Instagram, Facebook)">Réseaux sociaux (Linkedin, Instagram, Facebook)</option>
+<option value="Ancien élève">Ancien élève</option>
+<option value="Publicité">Publicité</option>
+<option value="Presse">Presse</option>
+<option value="Saison culturelle">Saison culturelle</option>
+<option value="Newsletter">Newsletter</option>
+</select><br>
+
+Nom Enfant 1 :<input  id="00NKB00000T2g4L" maxlength="255" name="00NKB00000T2g4L" size="20" type="text" /><br>
+
+Prénom Enfant 1 :<input  id="00NKB00000T2g4Q" maxlength="255" name="00NKB00000T2g4Q" size="20" type="text" /><br>
+
+Date de naissance Enfant 1 :<span class="dateInput dateOnlyInput"><input  id="00NKB00000T2g4V" name="00NKB00000T2g4V" size="12" type="text" /></span><br>
+
+Ecole actuelle Enfant 1 :<input  id="00NKB00000T2g4a" maxlength="255" name="00NKB00000T2g4a" size="20" type="text" /><br>
+
+Classe actuelle Enfant 1 :<select  id="00NKB00000T2g4n" name="00NKB00000T2g4n" title="Classe actuelle Enfant 1"><option value="">- Aucun -</option><option value="14ème / Nursery">14ème / Nursery</option>
+<option value="13ème / 1p / Kindergarten">13ème / 1p / Kindergarten</option>
+<option value="12ème / 2p / Year 1">12ème / 2p / Year 1</option>
+<option value="11ème / 3P / Year 2">11ème / 3P / Year 2</option>
+<option value="10ème / 4p / Year 3">10ème / 4p / Year 3</option>
+<option value="9ème / 5p / Year 4">9ème / 5p / Year 4</option>
+<option value="8ème / 6p / Year 5">8ème / 6p / Year 5</option>
+<option value="7ème / 7p / Year 6">7ème / 7p / Year 6</option>
+<option value="6ème / 9H / Year 7">6ème / 9H / Year 7</option>
+<option value="5ème /10H / Year 8">5ème /10H / Year 8</option>
+<option value="4ème / 11H / Year 9">4ème / 11H / Year 9</option>
+<option value="3ème /1ère Collège / Year 10">3ème /1ère Collège / Year 10</option>
+<option value="2nde / 2ème Collège / Year 11">2nde / 2ème Collège / Year 11</option>
+<option value="1ère / 3ème Collège / Year 12">1ère / 3ème Collège / Year 12</option>
+<option value="Terminale / 4ème Collège / Year 13">Terminale / 4ème Collège / Year 13</option>
+</select><br>
+
+Nom Enfant 2 :<input  id="00NKB00000T2g4s" maxlength="255" name="00NKB00000T2g4s" size="20" type="text" /><br>
+
+Prénom Enfant 2 :<input  id="00NKB00000T2g4x" maxlength="255" name="00NKB00000T2g4x" size="20" type="text" /><br>
+
+Date de naissance Enfant 2 :<span class="dateInput dateOnlyInput"><input  id="00NKB00000T2iMx" name="00NKB00000T2iMx" size="12" type="text" /></span><br>
+
+Ecole actuelle Enfant 2 :<input  id="00NKB00000T2iN2" maxlength="255" name="00NKB00000T2iN2" size="20" type="text" /><br>
+
+Classe actuelle Enfant 2 :<select  id="00NKB00000UsjGb" name="00NKB00000UsjGb" title="Classe actuelle Enfant 2"><option value="">- Aucun -</option><option value="14ème / Nursery">14ème / Nursery</option>
+<option value="13ème / 1p / Kindergarten">13ème / 1p / Kindergarten</option>
+<option value="12ème / 2p / Year 1">12ème / 2p / Year 1</option>
+<option value="11ème / 3P / Year 2">11ème / 3P / Year 2</option>
+<option value="10ème / 4p / Year 3">10ème / 4p / Year 3</option>
+<option value="9ème / 5p / Year 4">9ème / 5p / Year 4</option>
+<option value="8ème / 6p / Year 5">8ème / 6p / Year 5</option>
+<option value="7ème / 7p / Year 6">7ème / 7p / Year 6</option>
+<option value="6ème / 9H / Year 7">6ème / 9H / Year 7</option>
+<option value="5ème /10H / Year 8">5ème /10H / Year 8</option>
+<option value="4ème / 11H / Year 9">4ème / 11H / Year 9</option>
+<option value="3ème /1ère Collège / Year 10">3ème /1ère Collège / Year 10</option>
+<option value="2nde / 2ème Collège / Year 11">2nde / 2ème Collège / Year 11</option>
+<option value="1ère / 3ème Collège / Year 12">1ère / 3ème Collège / Year 12</option>
+<option value="Terminale / 4ème Collège / Year 13">Terminale / 4ème Collège / Year 13</option>
+</select><br>
+
+Nom Enfant 3 :<input  id="00NKB00000TGUbs" maxlength="255" name="00NKB00000TGUbs" size="20" type="text" /><br>
+
+Prénom Enfant 3 :<input  id="00NKB00000TGUbx" maxlength="255" name="00NKB00000TGUbx" size="20" type="text" /><br>
+
+Date de naissance Enfant 3 :<span class="dateInput dateOnlyInput"><input  id="00NKB00000TGUc2" name="00NKB00000TGUc2" size="12" type="text" /></span><br>
+
+Ecole actuelle Enfant 3 :<input  id="00NKB00000TGUc7" maxlength="255" name="00NKB00000TGUc7" size="20" type="text" /><br>
+
+Classe actuelle Enfant 3 :<select  id="00NKB00000UsjGg" name="00NKB00000UsjGg" title="Classe actuelle Enfant 3"><option value="">- Aucun -</option><option value="14ème / Nursery">14ème / Nursery</option>
+<option value="13ème / 1p / Kindergarten">13ème / 1p / Kindergarten</option>
+<option value="12ème / 2p / Year 1">12ème / 2p / Year 1</option>
+<option value="11ème / 3P / Year 2">11ème / 3P / Year 2</option>
+<option value="10ème / 4p / Year 3">10ème / 4p / Year 3</option>
+<option value="9ème / 5p / Year 4">9ème / 5p / Year 4</option>
+<option value="8ème / 6p / Year 5">8ème / 6p / Year 5</option>
+<option value="7ème / 7p / Year 6">7ème / 7p / Year 6</option>
+<option value="6ème / 9H / Year 7">6ème / 9H / Year 7</option>
+<option value="5ème /10H / Year 8">5ème /10H / Year 8</option>
+<option value="4ème / 11H / Year 9">4ème / 11H / Year 9</option>
+<option value="3ème /1ère Collège / Year 10">3ème /1ère Collège / Year 10</option>
+<option value="2nde / 2ème Collège / Year 11">2nde / 2ème Collège / Year 11</option>
+<option value="1ère / 3ème Collège / Year 12">1ère / 3ème Collège / Year 12</option>
+<option value="Terminale / 4ème Collège / Year 13">Terminale / 4ème Collège / Year 13</option>
+</select><br>
+
+Langue de communication :<select  id="00NKB00000UsjjL" name="00NKB00000UsjjL" title="Langue de communication"><option value="">- Aucun -</option><option value="Anglais">Anglais</option>
+<option value="Français">Français</option>
+</select><br>
+
+<div class="g-recaptcha" data-sitekey="6Lfs-X8qAAAAAJ53SymhSk-WrIpS8R7zrF6W10nw"></div><br>
+<input type="submit" name="submit">
+
+</form>
+  </body>
+</html>
