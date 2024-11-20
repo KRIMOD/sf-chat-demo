@@ -8,10 +8,6 @@
 <!--  ----------------------------------------------------------------------  -->
 <head>
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
- function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
-</script>
 </head>
 <!--  ----------------------------------------------------------------------  -->
 <!--  REMARQUE : Ajoutez l'élément suivant <FORM> à votre page.               -->
@@ -19,7 +15,6 @@
 <body>
 <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKB000000H76s" method="POST">
 
-<input type=hidden name='captcha_settings' value='{"keyname":"webtolead","fallback":"true","orgId":"00DKB000000H76s","ts":""}'>
 <input type=hidden name="oid" value="00DKB000000H76s">
 <!-- <input type=hidden name="retURL" value="https://www.florimont.ch/"> -->
 
@@ -163,8 +158,6 @@ Classe actuelle Enfant 3 :<select  id="00NKB00000UsjGg" name="00NKB00000UsjGg" t
 Langue de communication :<select  id="00NKB00000UsjjL" name="00NKB00000UsjjL" title="Langue de communication"><option value="">- Aucun -</option><option value="Anglais">Anglais</option>
 <option value="Français">Français</option>
 </select><br>
-
-<div class="g-recaptcha" data-sitekey="6Lfs-X8qAAAAAJ53SymhSk-WrIpS8R7zrF6W10nw"></div><br>
 <input type="submit" name="submit">
 
 </form>
